@@ -11,6 +11,7 @@
 #' @return A dataframe of selected holiday dates
 #'
 #' @examples
+#' holiday_query('thanksgiving',2000)
 #' holiday_query('new year',2018:2020)
 #' holiday_query('mlk day', c(1990,2000,2100))
 #'
@@ -35,7 +36,7 @@ holiday_query = function(holiday_name,holiday_years = NULL){
                                      start = 1L, end = 2L))
   holidayR[which(holidayR$holiday_2 == 'ma'),4] = 'm'
   data = holidayR[which(holidayR$holiday_2 == p),]
-  data = data[,-4]
+  data = data[,-c(2,4)]
   row.names(data) <- seq(nrow(data))
   data}
 
@@ -48,7 +49,7 @@ holiday_query = function(holiday_name,holiday_years = NULL){
                                                  start = 1L, end = 2L))
     holidayR[which(holidayR$holiday_2 == 'ma'),4] = 'm'
     data = holidayR[which(holidayR$holiday_2 == p),]
-    data = data[,-4]
+    data = data[,-c(2,4)]
     data = data[which(data$year %in% holiday_years),]
     row.names(data) <- seq(nrow(data))
     data

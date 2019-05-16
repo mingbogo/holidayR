@@ -20,6 +20,7 @@ A dataframe of selected holiday dates
 An easy query that selects a specific holiday and year or years
 }
 \examples{
+holiday_query('thanksgiving',2000)
 holiday_query('new year',2018:2020)
 holiday_query('mlk day', c(1990,2000,2100))
 
